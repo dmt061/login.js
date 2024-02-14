@@ -86,3 +86,5 @@ function appNotas(iniciarsesion){
 }
 
 }
+
+menuApp();
