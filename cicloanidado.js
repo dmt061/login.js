@@ -25,8 +25,8 @@ function registrarusuarios(){
 
 function iniciarsesion(){
     let userMail= prompt("Ingres el usuario registrado:");
-    let userPass=("Ingrese la contraseña registrada");
-    if(email==userMail && password==userPass){
+    let userPass= prompt("Ingrese la contraseña registrada");
+    if(student.includes(userMail) && student.includes(userPass)){
         return true;
     }else{
         alert("Valide sus credenciales");
@@ -45,8 +45,9 @@ function menuApp(){
                 break;
             case 2:
                 document.write("Inicar sesion");
-                iniciarsesion();
-                appNotas(iniciarsesion);
+                let inited= iniciarsesion();
+                alert(inited)
+                appNotas(inited);
                 break;
             case 3:
                 document.write("Salir");
@@ -61,16 +62,18 @@ function menuApp(){
 
 }
 
-function appNotas(iniciarsesion){
-    while(iniciarsesion== true){
+function appNotas(inited ){
+    while(inited== true){
     alert("Bienvenido" + studentName);
     opcApp = parseInt(prompt("1. Ver mis datos\n 2. Registrar mis notas\n 3. Ver mis notas\n 4. salir"));
     switch(opcApp){
             case 1:
                 document.write("ver mis datos");
+                verDatosEstudiante()
                 break;
             case 2:
                 document.write("Registrar mis notas");
+                registrarNotas()
                 break;
             case 3:
                 document.write("Ver mis notas");
@@ -78,6 +81,7 @@ function appNotas(iniciarsesion){
             case 4:
                 document.write("Salir");
                 iniciarsesion=false;
+                inited=false;
                 break;
             default:
                 alert("Ingrese una opcion valida");
@@ -85,6 +89,20 @@ function appNotas(iniciarsesion){
     }
 }
 
+}
+function verDatosEstudiante(){
+    for(let i =0; i< student.length; i){
+        document.write("Dato"+ i + 1 +"Es:" + student[i])
+    }
+}
+
+function registrarNotas(){
+    let nota1=parseInt(prompt("Ingrese la nota 1"));
+    notes.push(nota1)
+    let nota2=parseInt(prompt("Ingrese la nota 2"));
+    notes.push(nota2)
+    let nota3=parseInt(prompt("Ingrese la nota 3"));
+    notes.push(nota3)
 }
 
 menuApp();
