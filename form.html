@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Formulario</title>
+    <script>
+        function formValidate(){
+            let x = document.forms["myform"]["fname"].value;
+            let y = document.forms["myform"]["flname"].value;
+            let z = document.forms["myform"]["fsalary"].value;
+    
+            if(x == ""  || y== "" || z== ""){
+                alert("Debes llenar todos los campos");
+                return false;
+            }else{
+                alert("Informacion enviada");
+            }
+            
+    
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -18,13 +34,13 @@
 <main>
     <section id="form">
         <h2 >Datos del empleado</h2>
-        <form id="costumerform">
+        <form id="costumerform" name="myform" action="form.html">
             
-            Name   <br> <input type="text" name="fname" id="fname"><br><br>
-            Lastname   <br> <input type="text" name="flname" id="flame"><br><br>
-            Salary    <br> <input type="number" name="fsalary" id="fsalary"><br><br>
+            Name:   <br> <input type="text" name="fname" id="fname"><br><br>
+            Lastname:   <br> <input type="text" name="flname" id="flname"><br><br>
+            Salary:    <br> <input type="number" name="fsalary" id="fsalary"><br><br>
         </form>
-        <button id="btnenviar"> 
+        <button id="btnenviar" onclick="formValidate()"> 
         Enviar
         </button>
 
@@ -38,6 +54,7 @@
         </article>
     </section>
 </main>
+
 
 </body>
 </html> 
